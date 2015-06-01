@@ -1,0 +1,15 @@
+{
+  "name": "slack-fastspring-integration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/hoodiehq/slack-fastspring-integration",
+  "author": "Jan Lehnardt <jan@apache.org>",
+  "license": "Apache 2 License",
+  "devDependencies": {
+    "semantic-release": "^3.3.1"
+  }
+}
