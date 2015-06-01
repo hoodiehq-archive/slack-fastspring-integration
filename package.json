@@ -1,12 +1,17 @@
 {
   "name": "slack-fastspring-integration",
-  "version": "1.0.0",
+  "version": "0.0.0-semantically-released",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "semantic-release pre",
+    "postpublish": "semantic-release post"
   },
-  "repository": "https://github.com/hoodiehq/slack-fastspring-integration",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hoodiehq/slack-fastspring-integration"
+  },
   "author": "Jan Lehnardt <jan@apache.org>",
   "license": "Apache 2 License",
   "devDependencies": {

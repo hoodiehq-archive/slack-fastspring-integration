@@ -1,0 +1,32 @@
+language: node_js
+node_js:
+- '0.10'
+# If you have a more sophisticated build with multiple jobs you should have a look at
+# https://github.com/dmakhno/travis_after_all which is also configured for this
+# package. (Check the .travis.yml)
+sudo: false
+cache:
+  directories:
+  - node_modules
+notifications:
+  email: false
+# See https://github.com/boennemann/semantic-release/issues/18
+before_deploy:
+- npm config set spin false --global
+deploy:
+  provider: npm
+  email: jan@apache.org
+  # Very important. Don't forget this one.
+  skip_cleanup: true
+  # Travis currently only supports the old auth key format.
+  # Do `echo -n "<username>:<password>" | base64` to get it.
+  # You should encrypt this:
+  # `travis encrypt $(echo -n "<username>:<password>" | base64) --add deploy.api_key`
+  api_key:
+    secure: k7g3gb9HWOxR6+1N6AQ7zLodBxdKH4i4HAa9uCYzWdPCuBKOp5GiPbqFZpAv9Fysi1MOjcOT8EYIf+9BhLwl7NhptsIH8Pzgk6pqsWkaKmXXY/LUb/ZBWWH//kWvirDGDR6GmjxWmd6l+rLZId5HgT0Lx75cnCuWTW421UkFbDo8h7+hjMydcfEFASdDo1RuMy+NLBHIbmjgu/JtgjhxqADsPX5GM/63oooNF5zFQ656m9pTY24cOkryR1nsIhrxQLVYawFF3+kxkTExpiR0YLXW6YT42A3SSwdJGAzN/a1TX1vBVv2r/C+m7JrxWXHFQKcAbd7Gg1IQFENy/FPsYJyNY2fTrLbmn+UaDs3VhqpTxt4hoZhs5EcoHyLxtzEisGlJehUT3usst6XaS4nECAZEvd1ClTS7sh/5Sp1qIovylhsNr/8PwcgCn7qaaQwd0OGtTvBB9SiJpylU1FPuiUG8Jm6xgI4LLPa6xwLS3IOQ4NRI52X/tcRD9nW25307XywfUwPc9udz+ka1HSq8MOE2RgSNl2FeOSpNGksUYWpBrsXQsBYatZzDpnfYojkukj9ParIZ8d2stw1zYQi6I6LuWnrNwl7YCml8wPN8rqv61nH4JJkD5AJRRAjo6Z159Qy0/914xPmVwhSwckCrPsf8jknh/ZTmY7U3awvz88A=
+  on:
+    branch: master
+    repo: hoodiehq/slack-fastspring-integration
+env:
+  global:
+    secure: Jkko1uVw5q2E+GcsT9THRp2sUK0C/aE+JgcyRenkFsNAp9SuYLEjp8mqr8lVhXR9o9Tcy6na1R0dL+MBwQpf9yPxQjBD8u2qU9QXvIDd/+8U3Nz5G2HWtmfIdqZMkgTyGxDDZDYp4+eOpYfRAbx8vPaORHMo6pA6ie1rCwv0uDgr67i8AreaaVGrrb5XUzOdnSJwAcjtJoxqJiWwG/4r8inYYw3hVIG+b77G5ZnFav2/IeqsGU7GeFcjE+Z2B4wFUFWHf8nJrBHkZmr2VhMgIcEiEs7A67lhia8fWYLyesu4icvfLYWkHtSlVVidvhCL1t8dm7lTFGwEpR0gfnaai0cSnDWQYGkRPJ9w4FFt3Z0A/tXotXfVoQb8rLcN2+3SknB9eiFZNIoSdNWm+EClkDZC11a2EZ59n3o4JhWj8MlCLiHNtEfy2KLJDJMBLkLC6B/wNs2hapsv7zAmTXwJsEqbLylTMcT4qaQX6qN+2SgqeUm1wKbP/ZWFX6bpNA8RNJ9C1J7armpE11ydELSZ2aYQtuAqEYoBnhMSKmed2YysO97p0W9jQ6Uc+5XUcbnvS9fYdgMulTHYBYvgGBVgDDWdKsq3+gfL1hI8QOSttuW2nUgrCMZ21DuBlepO+QLc/IfsQHLuxTxRWDclQvAvjIlOTaXviecGY67mNJpUpmU=
