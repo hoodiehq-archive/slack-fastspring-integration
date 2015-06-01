@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "semantic-release pre",
     "postpublish": "semantic-release post"
@@ -16,5 +17,9 @@
   "license": "Apache 2 License",
   "devDependencies": {
     "semantic-release": "^3.3.1"
+  },
+  "dependencies": {
+    "hapi": "^8.6.0",
+    "slack-client": "^1.4.1"
   }
 }
